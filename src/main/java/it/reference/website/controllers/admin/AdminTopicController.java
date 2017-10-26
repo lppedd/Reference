@@ -19,32 +19,35 @@ public class AdminTopicController
 {
    private final TopicService topicService;
    private final TopicMapper topicMapper;
-
+   
    public AdminTopicController(
-        final TopicService topicService,
-        final TopicMapper topicMapper) {
+            final TopicService topicService,
+            final TopicMapper topicMapper) {
       this.topicService = topicService;
       this.topicMapper = topicMapper;
    }
-
+   
    @GetMapping
    public String form(final Model model) {
       model.addAttribute("topicModel", new TopicModel());
       return "admin/topic";
    }
-
+   
    @PostMapping("create")
-   public String create(final TopicModel topicModel, final BindingResult bindingResult, final RedirectAttributes redirectAttributes) {
+   public String create(
+            final TopicModel topicModel,
+            final BindingResult bindingResult,
+            final RedirectAttributes redirectAttributes) {
       final Topic topic = topicService.save(topicMapper.topicModelToTopic(topicModel));
-
+      
       if (bindingResult.hasErrors()) {
          return "admin/topic";
       }
-
+      
       redirectAttributes.addAttribute("topicId", topic.getId());
       return "redirect:/topics/{topicId}";
    }
-
+   
    @PostMapping("delete")
    public String delete(@RequestBody final long topicId) {
       topicService.delete(topicId);

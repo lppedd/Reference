@@ -13,10 +13,10 @@ public class TopicModel
    @NotBlank
    @Size(max = 50)
    private String title;
-
+   
    @NotBlank
    private String description;
-
+   
    @NotNull
    private long areaId;
    private List<ParagraphModel> paragraphs;

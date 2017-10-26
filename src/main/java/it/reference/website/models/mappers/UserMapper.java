@@ -13,13 +13,13 @@ public abstract class UserMapper
 {
    @Autowired
    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+   
    @Mapping(target = "password", qualifiedByName = "encodedPassword")
    public abstract User userModelToUser(final UserModel userModel);
-
+   
    @Mapping(target = "password", ignore = true)
    public abstract UserModel userToUserModel(final User user);
-
+   
    @Named("encodedPassword")
    public String getEncodedPassword(final String password) {
       return bCryptPasswordEncoder.encode(password);

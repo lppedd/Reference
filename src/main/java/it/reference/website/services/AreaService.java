@@ -12,23 +12,23 @@ import java.util.List;
 public class AreaService
 {
    private final AreaRepository areaRepository;
-
+   
    public AreaService(final AreaRepository areaRepository) {
       this.areaRepository = areaRepository;
    }
-
+   
    public List<Area> getAll() {
       return getAll(Sort.by(Order.asc("name")));
    }
-
+   
    public List<Area> getAll(final Sort sort) {
       return areaRepository.findAll(sort);
    }
-
+   
    public Area save(final Area area) {
       return areaRepository.save(area);
    }
-
+   
    public void delete(final long areaId) {
       areaRepository.deleteById(areaId);
    }

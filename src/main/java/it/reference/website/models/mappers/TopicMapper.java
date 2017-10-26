@@ -10,10 +10,10 @@ import java.util.List;
 public interface TopicMapper
 {
    Topic topicModelToTopic(final TopicModel topicModel);
-
+   
    TopicModel topicToTopicModel(final Topic topic);
-
+   
    List<Topic> topicModelsToTopics(final List<TopicModel> topicModels);
-
+   
    List<TopicModel> topicsToTopicModels(final List<Topic> topics);
 }

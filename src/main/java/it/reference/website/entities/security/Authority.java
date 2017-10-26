@@ -14,7 +14,7 @@ public class Authority implements GrantedAuthority
    @Id
    @Column(columnDefinition = "CHAR(20)")
    private String authority;
-
+   
    @Column(length = 50)
    private String description;
 }

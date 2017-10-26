@@ -13,17 +13,17 @@ public class Topic
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private long id;
-
+   
    @Column(length = 75, nullable = false)
    private String title;
-
+   
    @Column(length = 500)
    private String description;
    private Date lastUpdate;
-
+   
    @ManyToOne
    private Area area;
-
+   
    @OneToMany(mappedBy = "topic")
    private List<Paragraph> paragraphs;
 }

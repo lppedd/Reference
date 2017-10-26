@@ -18,24 +18,24 @@ public class AreaController
    private final TopicService topicService;
    private final AreaMapper areaMapper;
    private final TopicMapper topicMapper;
-
+   
    public AreaController(
-        final AreaService areaService,
-        final TopicService topicService,
-        final AreaMapper areaMapper,
-        final TopicMapper topicMapper) {
+            final AreaService areaService,
+            final TopicService topicService,
+            final AreaMapper areaMapper,
+            final TopicMapper topicMapper) {
       this.areaService = areaService;
       this.topicService = topicService;
       this.areaMapper = areaMapper;
       this.topicMapper = topicMapper;
    }
-
+   
    @GetMapping
    public String list(final Model model) {
       model.addAttribute("areas", areaMapper.areasToAreaModels(areaService.getAll()));
       return "areas";
    }
-
+   
    @GetMapping("{areaId}")
    public String topics(@PathVariable final long areaId, final Model model) {
       model.addAttribute("topics", topicMapper.topicsToTopicModels(topicService.getByArea(areaId)));

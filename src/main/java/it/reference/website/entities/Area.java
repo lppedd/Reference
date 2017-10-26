@@ -12,10 +12,10 @@ public class Area
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private long id;
-
+   
    @Column(length = 50)
    private String name;
-
+   
    @OneToMany(mappedBy = "area")
    private List<Topic> topics;
 }

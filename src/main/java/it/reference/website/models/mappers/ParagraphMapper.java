@@ -10,10 +10,10 @@ import java.util.List;
 public interface ParagraphMapper
 {
    Paragraph paragraphModelToParagraph(final ParagraphModel paragraphModel);
-
+   
    ParagraphModel paragraphToParagraphModel(final Paragraph paragraph);
-
+   
    List<Paragraph> paragraphModelsToParagraphs(final List<ParagraphModel> paragraphModels);
-
+   
    List<ParagraphModel> paragraphsToParagraphModels(final List<Paragraph> paragraphs);
 }

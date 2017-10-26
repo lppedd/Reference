@@ -12,7 +12,7 @@ public class ParagraphModel
    @NotBlank
    @Length(max = 50)
    private String title;
-
+   
    @NotBlank
    private String text;
    private List<ParagraphModel> subParagraphs;
