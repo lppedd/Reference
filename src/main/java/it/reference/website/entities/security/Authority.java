@@ -11,10 +11,10 @@ import javax.persistence.Id;
 @Data
 public class Authority implements GrantedAuthority
 {
-	@Id
-	@Column(columnDefinition = "CHAR(20)")
-	private String authority;
+   @Id
+   @Column(columnDefinition = "CHAR(20)")
+   private String authority;
 
-	@Column(length = 50)
-	private String description;
+   @Column(length = 50)
+   private String description;
 }

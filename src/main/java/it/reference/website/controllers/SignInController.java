@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/signin")
 public class SignInController
 {
-	@GetMapping
-	public String form() {
-		return "signin";
-	}
+   @GetMapping
+   public String form() {
+      return "signin";
+   }
 }

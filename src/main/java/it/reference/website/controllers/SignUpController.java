@@ -16,25 +16,25 @@ import javax.validation.Valid;
 @RequestMapping("/signup")
 public class SignUpController
 {
-	private final UserService userService;
-	private final UserMapper userMapper;
+   private final UserService userService;
+   private final UserMapper userMapper;
 
-	public SignUpController(
-			final UserService userService,
-			final UserMapper userMapper) {
-		this.userService = userService;
-		this.userMapper = userMapper;
-	}
+   public SignUpController(
+        final UserService userService,
+        final UserMapper userMapper) {
+      this.userService = userService;
+      this.userMapper = userMapper;
+   }
 
-	@GetMapping
-	public String form(final Model model) {
-		model.addAttribute("userModel", new UserModel());
-		return "signup";
-	}
+   @GetMapping
+   public String form(final Model model) {
+      model.addAttribute("userModel", new UserModel());
+      return "signup";
+   }
 
-	@PostMapping
-	public String signUp(@Valid final UserModel userModel, final BindingResult bindingResult) {
-		userService.saveUser(userMapper.userModelToUser(userModel));
-		return bindingResult.hasErrors() ? "signup" : "redirect:/signin";
-	}
+   @PostMapping
+   public String signUp(@Valid final UserModel userModel, final BindingResult bindingResult) {
+      userService.saveUser(userMapper.userModelToUser(userModel));
+      return bindingResult.hasErrors() ? "signup" : "redirect:/signin";
+   }
 }

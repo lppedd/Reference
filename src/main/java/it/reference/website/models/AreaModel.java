@@ -9,8 +9,8 @@ import java.util.List;
 @Data
 public class AreaModel
 {
-	@NotBlank
-	@Size(max = 50)
-	private String name;
-	private List<TopicModel> topics;
+   @NotBlank
+   @Size(max = 50)
+   private String name;
+   private List<TopicModel> topics;
 }

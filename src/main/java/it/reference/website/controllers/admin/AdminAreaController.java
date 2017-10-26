@@ -16,31 +16,31 @@ import javax.validation.Valid;
 @RequestMapping("/admin/areas")
 public class AdminAreaController
 {
-	private final AreaService areaService;
-	private final AreaMapper areaMapper;
+   private final AreaService areaService;
+   private final AreaMapper areaMapper;
 
-	public AdminAreaController(
-			final AreaService areaService,
-			final AreaMapper areaMapper) {
-		this.areaService = areaService;
-		this.areaMapper = areaMapper;
-	}
+   public AdminAreaController(
+        final AreaService areaService,
+        final AreaMapper areaMapper) {
+      this.areaService = areaService;
+      this.areaMapper = areaMapper;
+   }
 
-	@GetMapping
-	public String form(final Model model) {
-		model.addAttribute("areaModel", new AreaModel());
-		return "admin/area";
-	}
+   @GetMapping
+   public String form(final Model model) {
+      model.addAttribute("areaModel", new AreaModel());
+      return "admin/area";
+   }
 
-	@PostMapping("/create")
-	public String create(@Valid final AreaModel areaModel, final BindingResult bindingResult) {
-		areaService.save(areaMapper.areaModelToArea(areaModel));
-		return bindingResult.hasErrors() ? "admin/area" : "redirect:/areas";
-	}
+   @PostMapping("/create")
+   public String create(@Valid final AreaModel areaModel, final BindingResult bindingResult) {
+      areaService.save(areaMapper.areaModelToArea(areaModel));
+      return bindingResult.hasErrors() ? "admin/area" : "redirect:/areas";
+   }
 
-	@PostMapping("/delete")
-	public String delete(final long areaId) {
-		areaService.delete(areaId);
-		return "redirect:/admin/areas";
-	}
+   @PostMapping("/delete")
+   public String delete(final long areaId) {
+      areaService.delete(areaId);
+      return "redirect:/admin/areas";
+   }
 }

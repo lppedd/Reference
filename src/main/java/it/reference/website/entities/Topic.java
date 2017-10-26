@@ -10,20 +10,20 @@ import java.util.List;
 @Data
 public class Topic
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private long id;
 
-	@Column(length = 50, nullable = false)
-	private String title;
+   @Column(length = 50, nullable = false)
+   private String title;
 
-	@Column(length = 500)
-	private String description;
-	private Date lastUpdate;
+   @Column(length = 500)
+   private String description;
+   private Date lastUpdate;
 
-	@ManyToOne
-	private Area area;
+   @ManyToOne
+   private Area area;
 
-	@OneToMany(mappedBy = "topic")
-	private List<Paragraph> paragraphs;
+   @OneToMany(mappedBy = "topic")
+   private List<Paragraph> paragraphs;
 }

@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = TopicMapper.class)
 public interface AreaMapper
 {
-	Area areaModelToArea(final AreaModel areaModel);
+   Area areaModelToArea(final AreaModel areaModel);
 
-	List<AreaModel> areasToAreaModels(final List<Area> areas);
+   List<AreaModel> areasToAreaModels(final List<Area> areas);
 }

@@ -9,13 +9,13 @@ import javax.validation.constraints.Size;
 @Data
 public class TopicModel
 {
-	@NotBlank
-	@Size(max = 50)
-	public String title;
+   @NotBlank
+   @Size(max = 50)
+   public String title;
 
-	@NotBlank
-	public String description;
+   @NotBlank
+   public String description;
 
-	@NotNull
-	public long areaId;
+   @NotNull
+   public long areaId;
 }

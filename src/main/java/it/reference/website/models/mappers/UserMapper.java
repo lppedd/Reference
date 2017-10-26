@@ -12,14 +12,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Mapper(componentModel = "spring")
 public abstract class UserMapper
 {
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+   @Autowired
+   private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	@AfterMapping
-	protected void setEncodedPassword(final UserModel userModel, @MappingTarget final User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(userModel.getPassword()));
-	}
+   @AfterMapping
+   protected void setEncodedPassword(final UserModel userModel, @MappingTarget final User user) {
+      user.setPassword(bCryptPasswordEncoder.encode(userModel.getPassword()));
+   }
 
-	@Mapping(target = "password", ignore = true)
-	public abstract User userModelToUser(final UserModel userModel);
+   @Mapping(target = "password", ignore = true)
+   public abstract User userModelToUser(final UserModel userModel);
 }

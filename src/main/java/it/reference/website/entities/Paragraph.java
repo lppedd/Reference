@@ -9,22 +9,22 @@ import java.util.List;
 @Data
 public class Paragraph
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private long id;
 
-	@Column(length = 50)
-	private String title;
+   @Column(length = 50)
+   private String title;
 
-	@Lob
-	private String text;
+   @Lob
+   private String text;
 
-	@ManyToOne
-	private Topic topic;
+   @ManyToOne
+   private Topic topic;
 
-	@ManyToOne
-	private Paragraph parent;
+   @ManyToOne
+   private Paragraph parent;
 
-	@OneToMany(mappedBy = "parent")
-	private List<Paragraph> subParagraphs;
+   @OneToMany(mappedBy = "parent")
+   private List<Paragraph> subParagraphs;
 }

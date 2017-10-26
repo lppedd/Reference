@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/areas")
 public class AreaController
 {
-	private final AreaService areaService;
-	private final TopicService topicService;
+   private final AreaService areaService;
+   private final TopicService topicService;
 
-	public AreaController(
-		  final AreaService areaService,
-		  final TopicService topicService) {
-		this.areaService = areaService;
-		this.topicService = topicService;
-	}
+   public AreaController(
+        final AreaService areaService,
+        final TopicService topicService) {
+      this.areaService = areaService;
+      this.topicService = topicService;
+   }
 
-	@GetMapping
-	public String list(final Model model) {
-		model.addAttribute("areas", areaService.getAll());
-		return "areas";
-	}
+   @GetMapping
+   public String list(final Model model) {
+      model.addAttribute("areas", areaService.getAll());
+      return "areas";
+   }
 
-	@GetMapping("/{areaId}")
-	public String topics(@PathVariable final long areaId, final Model model) {
-		model.addAttribute("topics", topicService.getByArea(areaId));
-		return "topics";
-	}
+   @GetMapping("/{areaId}")
+   public String topics(@PathVariable final long areaId, final Model model) {
+      model.addAttribute("topics", topicService.getByArea(areaId));
+      return "topics";
+   }
 }

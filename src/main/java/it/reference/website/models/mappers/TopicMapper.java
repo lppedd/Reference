@@ -7,5 +7,5 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface TopicMapper
 {
-	Topic topicModelToTopic(final TopicModel topicModel);
+   Topic topicModelToTopic(final TopicModel topicModel);
 }

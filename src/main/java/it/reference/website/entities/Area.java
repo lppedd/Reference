@@ -9,13 +9,13 @@ import java.util.List;
 @Data
 public class Area
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private long id;
 
-	@Column(length = 50)
-	private String name;
+   @Column(length = 50)
+   private String name;
 
-	@OneToMany(mappedBy = "area")
-	private List<Topic> topics;
+   @OneToMany(mappedBy = "area")
+   private List<Topic> topics;
 }

@@ -17,25 +17,25 @@ import javax.validation.Valid;
 @RequestMapping("/topics")
 public class TopicController
 {
-	private final TopicService topicService;
-	private final TopicMapper topicMapper;
+   private final TopicService topicService;
+   private final TopicMapper topicMapper;
 
-	public TopicController(
-			final TopicService topicService,
-			final TopicMapper topicMapper) {
-		this.topicService = topicService;
-		this.topicMapper = topicMapper;
-	}
+   public TopicController(
+        final TopicService topicService,
+        final TopicMapper topicMapper) {
+      this.topicService = topicService;
+      this.topicMapper = topicMapper;
+   }
 
-	@GetMapping("/{topicId}")
-	public String topic(@PathVariable final long topicId, final Model model) {
-		model.addAttribute("topic", topicService.get(topicId));
-		return "topic";
-	}
+   @GetMapping("/{topicId}")
+   public String topic(@PathVariable final long topicId, final Model model) {
+      model.addAttribute("topic", topicService.get(topicId));
+      return "topic";
+   }
 
-	@PostMapping
-	public String add(@Valid final TopicModel topicModel, final Model model, final BindingResult bindingResult) {
-		model.addAttribute("topic", topicService.save(topicMapper.topicModelToTopic(topicModel)));
-		return bindingResult.hasErrors() ? "topic" : "edit";
-	}
+   @PostMapping
+   public String add(@Valid final TopicModel topicModel, final Model model, final BindingResult bindingResult) {
+      model.addAttribute("topic", topicService.save(topicMapper.topicModelToTopic(topicModel)));
+      return bindingResult.hasErrors() ? "topic" : "edit";
+   }
 }
