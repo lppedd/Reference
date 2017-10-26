@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/areas")
+@RequestMapping("areas")
 public class AreaController
 {
    private final AreaService areaService;
@@ -36,7 +36,7 @@ public class AreaController
       return "areas";
    }
 
-   @GetMapping("/{areaId}")
+   @GetMapping("{areaId}")
    public String topics(@PathVariable final long areaId, final Model model) {
       model.addAttribute("topics", topicMapper.topicsToTopicModels(topicService.getByArea(areaId)));
       return "topics";

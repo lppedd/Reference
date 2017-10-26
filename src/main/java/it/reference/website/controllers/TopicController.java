@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/topics")
+@RequestMapping("topics")
 public class TopicController
 {
    private final TopicService topicService;
@@ -22,7 +22,7 @@ public class TopicController
       this.topicMapper = topicMapper;
    }
 
-   @GetMapping("/{topicId}")
+   @GetMapping("{topicId}")
    public String topic(@PathVariable final long topicId, final Model model) {
       model.addAttribute("topic", topicMapper.topicToTopicModel(topicService.get(topicId)));
       return "topic";

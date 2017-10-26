@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/signup")
+@RequestMapping("signup")
 public class SignUpController
 {
    private final UserService userService;

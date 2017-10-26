@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
@@ -32,14 +33,14 @@ public class AdminAreaController
       return "admin/area";
    }
 
-   @PostMapping("/create")
+   @PostMapping("create")
    public String create(@Valid final AreaModel areaModel, final BindingResult bindingResult) {
       areaService.save(areaMapper.areaModelToArea(areaModel));
       return bindingResult.hasErrors() ? "admin/area" : "redirect:/areas";
    }
 
-   @PostMapping("/delete")
-   public String delete(final long areaId) {
+   @PostMapping("delete")
+   public String delete(@RequestBody final long areaId) {
       areaService.delete(areaId);
       return "redirect:/admin/areas";
    }
