@@ -14,7 +14,7 @@ public class Topic
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private long id;
 
-   @Column(length = 50, nullable = false)
+   @Column(length = 75, nullable = false)
    private String title;
 
    @Column(length = 500)
