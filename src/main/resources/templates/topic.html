@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+	<head>
+		<meta charset="UTF-8">
+		<title th:text="${topic.title}"></title>
+	</head>
+	<body>
+		<div layout:fragment="main">
+			<h2 th:text="${topic.title}">Topic title</h2>
+			<hr/>
+			<th:block th:each="paragraph, status : ${topic.paragraphs}">
+				<div class="paragraph">
+					<th:block th:switch="${status.}"></th:block>
+					<h1></h1>
+				</div>
+			</th:block>
+		</div>
+	</body>
+</html>

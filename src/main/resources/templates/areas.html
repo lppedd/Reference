@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+	<head>
+		<meta charset="UTF-8">
+		<title>Areas</title>
+	</head>
+	<body>
+		<div layout:fragment="main">
+			<h2>Areas > topics</h2>
+			<hr/>
+			<div class="list">
+				<ul>
+					<th:block th:each="area, status : ${areas}">
+						<li>
+							<span class="more no-select" th:attr="data-target='.area' + ${status.index}">+</span>
+							<th:block th:text="${area.name}"></th:block>
+							<span class="right"></span>
+						</li>
+						
+						<li th:each="topic : ${area.topics}"
+						    th:class="'area' + ${status.index} + ' hidden nojs'">
+							<span class="spacing"></span>
+							<a th:href="@{/topics/{topicId}(topicId=${topic.id})}"
+							   th:text="${topic.title}"></a>
+						</li>
+					</th:block>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

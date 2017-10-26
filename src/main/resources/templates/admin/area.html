@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+	<head>
+		<meta charset="UTF-8">
+		<title>Create area</title>
+	</head>
+	<body>
+		<div layout:fragment="main">
+			<h2>Create area</h2>
+			<hr/>
+			<form method="post" action="#" th:action="@{/admin/areas/create}" th:object="${areaModel}">
+				<input type="text" th:field="*{name}">
+			</form>
+		</div>
+	</body>
+</html>
