@@ -11,5 +11,9 @@ public interface AreaMapper
 {
    Area areaModelToArea(final AreaModel areaModel);
 
+   AreaModel areaToAreaModel(final Area area);
+
+   List<Area> areaModelsToAreas(final List<AreaModel> areaModels);
+
    List<AreaModel> areasToAreaModels(final List<Area> areas);
 }

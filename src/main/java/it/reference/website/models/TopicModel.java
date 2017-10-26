@@ -5,17 +5,19 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 public class TopicModel
 {
    @NotBlank
    @Size(max = 50)
-   public String title;
+   private String title;
 
    @NotBlank
-   public String description;
+   private String description;
 
    @NotNull
-   public long areaId;
+   private long areaId;
+   private List<ParagraphModel> paragraphs;
 }
