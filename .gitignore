@@ -1,5 +1,4 @@
 target/
-.mvn/
 src/main/resources/*.properties
 
 ### STS ###
