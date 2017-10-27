@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("areas")
@@ -31,14 +32,12 @@ public class AreaController
    }
    
    @GetMapping
-   public String list(final Model model) {
-      model.addAttribute("areas", areaMapper.areasToAreaModels(areaService.getAll()));
-      return "areas";
+   public ModelAndView list() {
+      return new ModelAndView("areas").addObject("areas", areaMapper.areasToAreaModels(areaService.getAll()));
    }
    
    @GetMapping("{areaId}")
-   public String topics(@PathVariable final long areaId, final Model model) {
-      model.addAttribute("topics", topicMapper.topicsToTopicModels(topicService.getByArea(areaId)));
-      return "topics";
+   public ModelAndView topics(@PathVariable final long areaId, final Model model) {
+      return new ModelAndView("topics").addObject("topics", topicMapper.topicsToTopicModels(topicService.getByArea(areaId)));
    }
 }

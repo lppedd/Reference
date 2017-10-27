@@ -4,11 +4,11 @@ import it.reference.website.models.UserModel;
 import it.reference.website.models.mappers.UserMapper;
 import it.reference.website.services.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -27,9 +27,8 @@ public class SignUpController
    }
    
    @GetMapping
-   public String form(final Model model) {
-      model.addAttribute("userModel", new UserModel());
-      return "signup";
+   public ModelAndView form() {
+      return new ModelAndView("signup").addObject("userModel", new UserModel());
    }
    
    @PostMapping

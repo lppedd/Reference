@@ -4,12 +4,12 @@ import it.reference.website.models.AreaModel;
 import it.reference.website.models.mappers.AreaMapper;
 import it.reference.website.services.AreaService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -28,9 +28,8 @@ public class AdminAreaController
    }
    
    @GetMapping
-   public String form(final Model model) {
-      model.addAttribute("areaModel", new AreaModel());
-      return "admin/area";
+   public ModelAndView form() {
+      return new ModelAndView("admin/area").addObject("areaModel", new AreaModel());
    }
    
    @PostMapping("create")
