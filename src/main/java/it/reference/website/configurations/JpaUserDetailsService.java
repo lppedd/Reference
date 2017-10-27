@@ -1,4 +1,4 @@
-package it.reference.website.security;
+package it.reference.website.configurations;
 
 import it.reference.website.services.UserService;
 import org.springframework.security.core.userdetails.UserDetails;

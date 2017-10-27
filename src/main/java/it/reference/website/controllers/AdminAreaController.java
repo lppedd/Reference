@@ -1,4 +1,4 @@
-package it.reference.website.controllers.admin;
+package it.reference.website.controllers;
 
 import it.reference.website.models.AreaModel;
 import it.reference.website.models.mappers.AreaMapper;

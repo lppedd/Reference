@@ -1,4 +1,4 @@
-package it.reference.website.controllers.admin;
+package it.reference.website.controllers;
 
 import it.reference.website.entities.Topic;
 import it.reference.website.models.TopicModel;
