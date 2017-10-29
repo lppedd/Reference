@@ -1,4 +1,4 @@
-package it.reference.website.annotations.validators;
+package it.reference.website.validators;
 
 import it.reference.website.annotations.FieldsMatch;
 import org.springframework.beans.BeanWrapperImpl;

@@ -1,6 +1,6 @@
 package it.reference.website.annotations;
 
-import it.reference.website.annotations.validators.ValuesMatchValidator;
+import it.reference.website.validators.ValuesMatchValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
