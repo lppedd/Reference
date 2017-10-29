@@ -1,7 +1,7 @@
 package it.reference.website.models.mappers;
 
-import it.reference.website.entities.security.User;
-import it.reference.website.models.UserModel;
+import it.reference.website.entities.Writer;
+import it.reference.website.models.WriterModel;
 import it.reference.website.models.mappers.utils.StringMapperUtils;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -10,16 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Mapper(componentModel = "spring", uses = StringMapperUtils.class)
-public abstract class UserMapper
+public abstract class WriterMapper
 {
    @Autowired
    private BCryptPasswordEncoder bCryptPasswordEncoder;
    
    @Mapping(target = "password", qualifiedByName = "encodePassword")
-   public abstract User userModelToUser(final UserModel userModel);
+   public abstract Writer wrtierModelToWriter(final WriterModel writerModel);
    
    @Mapping(target = "password", ignore = true)
-   public abstract UserModel userToUserModel(final User user);
+   public abstract WriterModel writerToWriterModel(final Writer writer);
    
    @Named("encodePassword")
    public String encodePassword(final String password) {

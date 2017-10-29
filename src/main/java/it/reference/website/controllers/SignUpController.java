@@ -1,8 +1,8 @@
 package it.reference.website.controllers;
 
-import it.reference.website.models.UserModel;
-import it.reference.website.models.mappers.UserMapper;
-import it.reference.website.services.UserService;
+import it.reference.website.models.WriterModel;
+import it.reference.website.models.mappers.WriterMapper;
+import it.reference.website.services.WriterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,24 +16,28 @@ import javax.validation.Valid;
 @RequestMapping("signup")
 public class SignUpController
 {
-   private final UserService userService;
-   private final UserMapper userMapper;
+   private final WriterService writerService;
+   private final WriterMapper writerMapper;
    
    public SignUpController(
-            final UserService userService,
-            final UserMapper userMapper) {
-      this.userService = userService;
-      this.userMapper = userMapper;
+            final WriterService writerService,
+            final WriterMapper writerMapper) {
+      this.writerService = writerService;
+      this.writerMapper = writerMapper;
    }
    
    @GetMapping
    public ModelAndView form() {
-      return new ModelAndView("signup").addObject("userModel", new UserModel());
+      return new ModelAndView("signup").addObject(new WriterModel());
    }
    
    @PostMapping
-   public String signUp(@Valid final UserModel userModel, final BindingResult bindingResult) {
-      userService.saveUser(userMapper.userModelToUser(userModel));
-      return bindingResult.hasErrors() ? "signup" : "redirect:/signin";
+   public String signUp(@Valid final WriterModel writerModel, final BindingResult bindingResult) {
+      if (bindingResult.hasErrors()) {
+         return "signup";
+      }
+      
+      writerService.saveWriter(writerMapper.wrtierModelToWriter(writerModel));
+      return "redirect:/signin";
    }
 }

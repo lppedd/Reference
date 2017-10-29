@@ -9,9 +9,9 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @FieldsMatch(
-         value = {"password", "comparisonPassword"},
+         value = { "password", "comparisonPassword" },
          message = "Passwords do not match")
-public class UserModel
+public class WriterModel
 {
    @Email
    @Length(max = 100)

@@ -5,7 +5,7 @@
 		<title>Signup</title>
 	</head>
 	<body>
-		<form th:object="${userModel}" th:action="@{/signup}" method="post">
+		<form th:object="${writerModel}" th:action="@{/signup}" method="post">
 			<input th:field="*{email}" type="email" name="email">
 			<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
 			
