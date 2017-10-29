@@ -8,11 +8,11 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SeedingConfigurarion
+public class SeedingConfiguration
 {
    private final AuthorityRepository authorityRepository;
    
-   public SeedingConfigurarion(final AuthorityRepository authorityRepository) {
+   public SeedingConfiguration(final AuthorityRepository authorityRepository) {
       this.authorityRepository = authorityRepository;
    }
    
